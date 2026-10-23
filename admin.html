@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>অ্যাডমিন প্যানেল — MD Sabbir Hossen Website</title>
+<style>
+  :root{ --bg:#0d0a07; --panel:#171208; --paper:#ece1c8; --muted:#97876a; --gold:#c9a35a; --line:rgba(201,163,90,.25); --ok:#3ddc84; --err:#ff7b72; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,"Noto Serif Bengali",serif;background:var(--bg);color:var(--paper);line-height:1.7;padding:18px 14px 110px}
+  .wrap{max-width:860px;margin:0 auto}
+  h1{font-size:1.35rem;color:var(--gold);margin-bottom:4px}
+  .sub{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:18px}
+  label{display:block;font-size:.9rem;color:var(--muted);margin:12px 0 5px}
+  input[type=password],input[type=text],textarea{width:100%;background:#0d0a07;border:1px solid var(--line);border-radius:6px;color:var(--paper);padding:10px 12px;font-size:1rem;font-family:inherit}
+  textarea{min-height:74px;resize:vertical}
+  .btn{display:inline-block;background:var(--gold);color:#171106;border:none;padding:11px 26px;border-radius:6px;font-size:1rem;cursor:pointer;font-family:inherit;font-weight:700}
+  .btn:disabled{opacity:.5}
+  .btn-ghost{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:9px 20px;border-radius:6px;cursor:pointer;font-family:inherit;font-size:.95rem}
+  details{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;background:var(--panel)}
+  summary{cursor:pointer;padding:14px 18px;font-size:1.05rem;color:var(--gold);font-weight:700}
+  .group-body{padding:0 18px 16px}
+  .key-name{font-size:.78rem;color:var(--muted);letter-spacing:.4px}
+  .row{border-top:1px dashed rgba(201,163,90,.15);padding-top:8px;margin-top:8px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:640px){.cols{grid-template-columns:1fr}}
+  #savebar{position:fixed;left:0;right:0;bottom:0;background:rgba(13,10,7,.96);border-top:1px solid var(--line);padding:12px 16px;display:none;z-index:50}
+  #savebar .inner{max-width:860px;margin:0 auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  #status{font-size:.95rem}
+  .ok{color:var(--ok)} .err{color:var(--err)}
+  .note{font-size:.88rem;color:var(--muted)}
+  a{color:var(--gold)}
+  #editor{display:none}
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🔐 অ্যাডমিন প্যানেল</h1>
+  <p class="sub">MD Sabbir Hossen — ব্যক্তিগত ওয়েবসাইটের লেখা সম্পাদনা</p>
+
+  <!-- LOGIN -->
+  <div class="card" id="loginCard">
+    <p>আপনার <strong>Access Key</strong> দিন। কী-টি শুধু এই ব্রাউজারেই থাকে — সাইটের কোডে বা সার্ভারে কখনো যায় না।</p>
+    <label for="keyInput">Access Key (github_pat_…)</label>
+    <input type="password" id="keyInput" placeholder="github_pat_xxxxxxxxxxxx" autocomplete="off">
+    <p style="margin-top:16px"><button class="btn" id="loginBtn">প্রবেশ করুন</button></p>
+    <p class="note" id="loginMsg" style="margin-top:10px"></p>
+    <p class="note" style="margin-top:14px">কী নেই? GitHub → Settings → Developer settings → Personal access tokens → <em>Fine-grained tokens</em> → Generate new token → Repository access: <strong>md-sabbir-hossen</strong> (শুধু এই রিপো) → Permissions: <strong>Contents — Read and write</strong>।</p>
+  </div>
+
+  <!-- EDITOR -->
+  <div id="editor">
+    <div class="topbar">
+      <span id="loadStatus" class="note">লোড হচ্ছে…</span>
+      <span>
+        <a class="btn-ghost" style="text-decoration:none" href="https://stkshbdorg-lab.github.io/md-sabbir-hossen/" target="_blank" rel="noopener">🌐 লাইভ সাইট</a>
+        <button class="btn-ghost" id="logoutBtn">লগআউট</button>
+      </span>
+    </div>
+    <p class="note" style="margin-bottom:14px">প্রতিটি লেখা ইংরেজি (EN) ও বাংলা (BN) — দুই ভাষাতেই বদলাতে পারবেন। বদলিয়ে নিচের <strong>সেভ</strong> চাপলেই GitHub-এ জমা হবে; লাইভ সাইটে আসতে ~১ মিনিট লাগতে পারে।</p>
+    <div id="groups"></div>
+  </div>
+</div>
+
+<div id="savebar">
+  <div class="inner">
+    <span id="status">পরিবর্তন সেভ হয়নি</span>
+    <button class="btn" id="saveBtn">💾 সেভ করুন (লাইভ)</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var OWNER = 'stkshbdorg-lab', REPO = 'md-sabbir-hossen', FILE = 'content.json', BRANCH = 'main';
+  var API = 'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + FILE;
+  var LS_KEY = 'sabbir_site_admin_key';
+  var key = '', sha = '', data = null, dirty = false;
+
+  var GROUPS = [
+    ['সাধারণ', ['title','metaDesc','footerLine']],
+    ['হিরো (প্রথম অংশ)', ['heroCatalog','heroName','heroNameSub','heroRoles','heroSub','heroQuote','heroQuoteBy','portraitCap','portraitAlt']],
+    ['ন্যাভিগেশন', ['navAbout','navWriting','navTimeline','navPhilosophy','navContact']],
+    ['পরিচিতি (About)', ['aboutH','aboutLabel','aboutP1','aboutP2','stat1Num','stat1Lbl','stat2Num','stat2Lbl','stat3Num','stat3Lbl','field1','field2','field3','field4','field5','field6']],
+    ['লেখালেখি — ফেসবুক ডকুমেন্টারি', ['writingH','writingLabel','s1Title','s1Desc','s1e1','s1e2','s1e3','s1e4','s1e5','s1e6','s1e7','s1e8','s1More']],
+    ['লেখালেখি — দ্য গ্রেট রিসেট', ['s2Title','s2Desc','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10']],
+    ['লেখালেখি — অনিকেত–রাহাত সিরিজ', ['s3Title','s3Desc','b1t','b1tag','b2t','b2tag','b3t','b3tag','b4t','b4tag','b5t','b5tag']],
+    ['টাইমলাইন', ['tlH','tlLabel','t1y','t1h','t1p','t2y','t2h','t2p','t4y','t4h','t4p','t5y','t5h','t5p']],
+    ['দর্শন (Philosophy)', ['philQuote','philAtt']],
+    ['যোগাযোগ (Contact)', ['contactH','contactLabel','contactP','btnFb','btnWa','btnSite','fbBtn','waCardLabel','waBtn','waAria']]
+  ];
+  var LONG = /^(aboutP1|aboutP2|heroSub|heroQuote|s1Desc|s2Desc|s3Desc|contactP|philQuote|metaDesc|t1p|t2p|t4p|t5p)$/;
+
+  function b64encode(str){
+    var bytes = new TextEncoder().encode(str), bin = '';
+    bytes.forEach(function(b){ bin += String.fromCharCode(b); });
+    return btoa(bin);
+  }
+  function b64decode(b64){
+    var bin = atob(b64.replace(/\n/g, '')), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  function headers(){
+    return { 'Authorization': 'Bearer ' + key, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+  }
+  function setStatus(t, cls){ var s = document.getElementById('status'); s.textContent = t; s.className = cls || ''; }
+  function markDirty(){ dirty = true; setStatus('পরিবর্তন হয়েছে — সেভ করুন', ''); }
+
+  function load(){
+    document.getElementById('loadStatus').textContent = 'content.json লোড হচ্ছে…';
+    fetch(API + '?ref=' + BRANCH, { headers: headers() })
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(j){
+        sha = j.sha;
+        data = JSON.parse(b64decode(j.content));
+        render();
+        document.getElementById('loginCard').style.display = 'none';
+        document.getElementById('editor').style.display = 'block';
+        document.getElementById('savebar').style.display = 'block';
+        document.getElementById('loadStatus').textContent = '✓ লোড হয়েছে — এখন সম্পাদনা করুন';
+        setStatus('কোনো পরিবর্তন নেই', '');
+      })
+      .catch(function(e){
+        document.getElementById('loginMsg').innerHTML = '<span class="err">লোড হয়নি (' + e.message + ')। কী-টি ঠিক আছে কিনা ও এই রিপোর Contents অনুমতি আছে কিনা দেখুন।</span>';
+        localStorage.removeItem(LS_KEY);
+      });
+  }
+
+  function fieldHtml(k){
+    var en = (data.en && data.en[k]) || '', bn = (data.bn && data.bn[k]) || '';
+    var tag = LONG.test(k) ? 'textarea' : 'input';
+    function one(lang, val){
+      if (tag === 'textarea') return '<textarea data-k="' + k + '" data-lang="' + lang + '">' + val.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</textarea>';
+      return '<input type="text" data-k="' + k + '" data-lang="' + lang + '" value="' + val.replace(/&/g,'&amp;').replace(/"/g,'&quot;') + '">';
+    }
+    return '<div class="row"><span class="key-name">' + k + '</span><div class="cols"><div><label>EN</label>' + one('en', en) + '</div><div><label>BN</label>' + one('bn', bn) + '</div></div></div>';
+  }
+
+  function render(){
+    var html = '';
+    GROUPS.forEach(function(g, gi){
+      html += '<details' + (gi === 0 ? ' open' : '') + '><summary>' + g[0] + '</summary><div class="group-body">';
+      g[1].forEach(function(k){ html += fieldHtml(k); });
+      html += '</div></details>';
+    });
+    document.getElementById('groups').innerHTML = html;
+    document.querySelectorAll('#groups [data-k]').forEach(function(el){
+      el.addEventListener('input', function(){
+        var k = el.getAttribute('data-k'), lang = el.getAttribute('data-lang');
+        if (!data[lang]) data[lang] = {};
+        data[lang][k] = el.value;
+        markDirty();
+      });
+    });
+  }
+
+  function save(){
+    if (!dirty) { setStatus('কোনো পরিবর্তন নেই', ''); return; }
+    var btn = document.getElementById('saveBtn');
+    btn.disabled = true; setStatus('সেভ হচ্ছে…', '');
+    fetch(API, {
+      method: 'PUT', headers: headers(),
+      body: JSON.stringify({ message: 'Update site content via admin panel', content: b64encode(JSON.stringify(data, null, 2)), sha: sha, branch: BRANCH })
+    })
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(j){
+        sha = j.content.sha; dirty = false; btn.disabled = false;
+        setStatus('✓ সেভ হয়েছে! লাইভ সাইটে ~১ মিনিটে দেখা যাবে।', 'ok');
+      })
+      .catch(function(e){
+        btn.disabled = false;
+        setStatus('সেভ হয়নি (' + e.message + ') — আবার চেষ্টা করুন', 'err');
+      });
+  }
+
+  document.getElementById('loginBtn').addEventListener('click', function(){
+    key = document.getElementById('keyInput').value.trim();
+    if (!key) { document.getElementById('loginMsg').textContent = 'আগে Access Key দিন।'; return; }
+    localStorage.setItem(LS_KEY, key);
+    document.getElementById('loginMsg').textContent = 'যাচাই হচ্ছে…';
+    load();
+  });
+  document.getElementById('logoutBtn').addEventListener('click', function(){
+    localStorage.removeItem(LS_KEY); location.reload();
+  });
+  document.getElementById('saveBtn').addEventListener('click', save);
+
+  var saved = localStorage.getItem(LS_KEY);
+  if (saved) { key = saved; document.getElementById('loginMsg').textContent = 'সংরক্ষিত কী দিয়ে প্রবেশের চেষ্টা চলছে…'; load(); }
+})();
+</script>
+</body>
+</html>
