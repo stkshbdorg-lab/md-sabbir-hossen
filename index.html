@@ -157,6 +157,9 @@
   .entries .ttl{font-size:1.08rem;color:var(--paper)}
   .entries .ttl small{display:block;font-size:.94rem;color:var(--muted);line-height:1.8}
   .entries .tag{margin-left:auto;flex:0 0 auto;font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:2px 12px;border-radius:999px;white-space:nowrap}
+  .entries .read-link{margin-left:auto;flex:0 0 auto;font-size:.82rem;color:var(--gold);text-decoration:none;border:1px solid var(--line);padding:3px 14px;border-radius:999px;white-space:nowrap;transition:background .25s,color .25s}
+  .entries .read-link:hover{background:var(--gold);color:#1a1305}
+  .entries li{flex-wrap:wrap}
   .two-col{columns:2;column-gap:52px}
   .two-col li{break-inside:avoid}
   .shelf .more{margin-top:18px;font-size:.95rem;color:var(--muted)}
@@ -317,14 +320,16 @@
       <div class="shelf-head"><h3 data-i18n="s1Title">Facebook Documentary</h3><span class="mark en">Series · Documentary Essays</span></div>
       <p data-i18n="s1Desc">A serialized series of fact-based, long-form, documentary-style essays in Bangla — deep analysis of history, politics, society and civilization, where every claim is accompanied by an honest counter-argument.</p>
       <ul class="entries two-col">
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e1">Bread and Circuses<small>The ancient strategy of keeping the masses distracted</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e2">Divide and Rule<small>A history of the politics of division</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e3">The Debt Trap<small>From microcredit to credit cards — the polite face of modern slavery</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e4">The Detective in Your Pocket<small>What your phone knows about you</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e5">The Education Factory<small>What does school actually make — people, or obedient workers?</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e6">The Seven Levels of the Sufi Path<small>Seven steps in the journey of the soul</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e7">Bakerganj 1876<small>150 years of the great cyclone — storm, famine and forgetting</small></span></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e8">The Future of Artificial Intelligence<small>AI, agentic AI and AGI — a three-part series</small></span></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e1">Bread and Circuses<small>The ancient strategy of keeping the masses distracted</small></span><a class="read-link" data-href-i18n="s1e1url" href="https://www.facebook.com/100073523007908/posts/pfbid034AM3rN7XPkt2PMnDHnMJLExtzt3wFp36xxmVUVm25nUDHaM7rXXoCmhFHv6z" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e2">Divide and Rule<small>A history of the politics of division</small></span><a class="read-link" data-href-i18n="s1e2url" href="https://www.facebook.com/100073523007908/posts/pfbid0UimxiCvJygv8bwi4oU5A4tabSyjp97uJEHoL9qnjq8uwu43gJiSYN1EsQjztc8oUl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e3">The Debt Trap<small>From microcredit to credit cards — the polite face of modern slavery</small></span><a class="read-link" data-href-i18n="s1e3url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e4">The Detective in Your Pocket<small>What your phone knows about you</small></span><a class="read-link" data-href-i18n="s1e4url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e5">The Education Factory<small>What does school actually make — people, or obedient workers?</small></span><a class="read-link" data-href-i18n="s1e5url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e6">The Seven Levels of the Sufi Path<small>Seven steps in the journey of the soul</small></span><a class="read-link" data-href-i18n="s1e6url" href="https://www.facebook.com/100073523007908/posts/pfbid0hj6DBGWm4tNVu8Cn2M8Rn3GmqugbmUfusPNvF3dhVK3gKRdQPRfBaT7Bzt7189mSl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e7">Bakerganj 1876<small>150 years of the great cyclone — storm, famine and forgetting</small></span><a class="read-link" data-href-i18n="s1e7url" href="https://www.facebook.com/100073523007908/posts/pfbid02kdvn68o54BQDszxM2Ti1KM2feGujHXWkoE5zWjNmgnhF57r12bqjia1HWCu7XvESl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e8">The Future of Artificial Intelligence<small>AI, agentic AI and AGI — a three-part series</small></span><a class="read-link" data-href-i18n="s1e8url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e9">Water Politics<small>How a country can be ruled through its rivers</small></span><a class="read-link" data-href-i18n="s1e9url" href="https://www.facebook.com/100073523007908/posts/pfbid033Ld1ZoJ1hKMvtEGKPpBvdmo48c3QjsBSWexMc9N64SbE4fPAtu3Z2bgLuy7cMxeFl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
+        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e10">The Death of the Book<small>When reading becomes scrolling</small></span><a class="read-link" data-href-i18n="s1e10url" href="https://www.facebook.com/100073523007908/posts/pfbid0U29fk3oFU2ieotL2EJEFkUPDQ33gFmcuctCJLyYdrmbiBb35Bbw8fGVjkZ3y6dkYl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
       </ul>
       <p class="more" data-i18n="s1More">The series is ongoing — <b>every episode is published on Facebook</b>, together with a symbolic cover image.</p>
     </article>
@@ -350,11 +355,11 @@
       <div class="shelf-head"><h3 data-i18n="s3Title">The Aniket–Rahat Detective Series</h3><span class="mark en">Detective Novels · 5 Books</span></div>
       <p data-i18n="s3Desc">Psychology-based Bangla detective novels. The detective <strong>Aniket Chowdhury</strong> — a former psychology teacher who collects criminals' "excuses"; and his narrator-companion <strong>Rahat Hasan</strong>. Every case stands on the real ground of years, dates and contemporary events.</p>
       <ul class="entries">
-        <li><span class="idx" data-i18n="b1i">P</span><span class="ttl" data-i18n="b1t">The Excuse Collector<small>Prequel — the story of Aniket and Rahat's first meeting</small></span><span class="tag" data-i18n="b1tag">Prequel</span></li>
-        <li><span class="idx" data-i18n="b2i">N</span><span class="ttl" data-i18n="b2t">Watermark of a Shraban Night<small>A mystery on a monsoon night in Joltungi, a haor village</small></span><span class="tag" data-i18n="b2tag">First Novel</span></li>
-        <li><span class="idx" data-i18n="b3i">01</span><span class="ttl" data-i18n="b3t">The Second Death<small>The real death of a man "dead" in a launch sinking — on the night of the World Cup final</small></span><span class="tag" data-i18n="b3tag">Case #1</span></li>
-        <li><span class="idx" data-i18n="b4i">02</span><span class="ttl" data-i18n="b4t">The Last Letter<small>Postmaster Karim Box's last letter arrived two days late</small></span><span class="tag" data-i18n="b4tag">Case #2</span></li>
-        <li><span class="idx" data-i18n="b5i">03</span><span class="ttl" data-i18n="b5t">The Hidden Treasure<small>Four "accidents" in one Barisal family — and the trap of a 1971 diary</small></span><span class="tag" data-i18n="b5tag">Case #3</span></li>
+        <li><span class="idx" data-i18n="b1i">P</span><span class="ttl" data-i18n="b1t">The Excuse Collector<small>Prequel — the story of Aniket and Rahat's first meeting</small></span><a class="read-link" data-href-i18n="b1url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b1tag">Prequel</span></li>
+        <li><span class="idx" data-i18n="b2i">N</span><span class="ttl" data-i18n="b2t">Watermark of a Shraban Night<small>A mystery on a monsoon night in Joltungi, a haor village</small></span><a class="read-link" data-href-i18n="b2url" href="https://www.facebook.com/100073523007908/posts/pfbid02RHFLri7uR4RDkT8FnidNebj7GyYWKBNiXFsygzeh1x5ZXvJu3pRGJ1Db1nuy" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b2tag">First Novel</span></li>
+        <li><span class="idx" data-i18n="b3i">01</span><span class="ttl" data-i18n="b3t">The Second Death<small>The real death of a man "dead" in a launch sinking — on the night of the World Cup final</small></span><a class="read-link" data-href-i18n="b3url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b3tag">Case #1</span></li>
+        <li><span class="idx" data-i18n="b4i">02</span><span class="ttl" data-i18n="b4t">The Last Letter<small>Postmaster Karim Box's last letter arrived two days late</small></span><a class="read-link" data-href-i18n="b4url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b4tag">Case #2</span></li>
+        <li><span class="idx" data-i18n="b5i">03</span><span class="ttl" data-i18n="b5t">The Hidden Treasure<small>Four "accidents" in one Barisal family — and the trap of a 1971 diary</small></span><a class="read-link" data-href-i18n="b5url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b5tag">Case #3</span></li>
       </ul>
     </article>
   </section>
@@ -487,6 +492,24 @@
         s1e6: "The Seven Levels of the Sufi Path<small>Seven steps in the journey of the soul</small>",
         s1e7: "Bakerganj 1876<small>150 years of the great cyclone — storm, famine and forgetting</small>",
         s1e8: "The Future of Artificial Intelligence<small>AI, agentic AI and AGI — a three-part series</small>",
+        s1e9: "Water Politics<small>How a country can be ruled through its rivers</small>",
+        s1e10: "The Death of the Book<small>When reading becomes scrolling</small>",
+        readFb: "Read on Facebook &rarr;",
+        s1e1url: "https://www.facebook.com/100073523007908/posts/pfbid034AM3rN7XPkt2PMnDHnMJLExtzt3wFp36xxmVUVm25nUDHaM7rXXoCmhFHv6z",
+        s1e2url: "https://www.facebook.com/100073523007908/posts/pfbid0UimxiCvJygv8bwi4oU5A4tabSyjp97uJEHoL9qnjq8uwu43gJiSYN1EsQjztc8oUl/",
+        s1e3url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e4url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e5url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e6url: "https://www.facebook.com/100073523007908/posts/pfbid0hj6DBGWm4tNVu8Cn2M8Rn3GmqugbmUfusPNvF3dhVK3gKRdQPRfBaT7Bzt7189mSl/",
+        s1e7url: "https://www.facebook.com/100073523007908/posts/pfbid02kdvn68o54BQDszxM2Ti1KM2feGujHXWkoE5zWjNmgnhF57r12bqjia1HWCu7XvESl/",
+        s1e8url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e9url: "https://www.facebook.com/100073523007908/posts/pfbid033Ld1ZoJ1hKMvtEGKPpBvdmo48c3QjsBSWexMc9N64SbE4fPAtu3Z2bgLuy7cMxeFl/",
+        s1e10url: "https://www.facebook.com/100073523007908/posts/pfbid0U29fk3oFU2ieotL2EJEFkUPDQ33gFmcuctCJLyYdrmbiBb35Bbw8fGVjkZ3y6dkYl/",
+        b1url: "https://facebook.com/md.sabbir.hossen.873485",
+        b2url: "https://www.facebook.com/100073523007908/posts/pfbid02RHFLri7uR4RDkT8FnidNebj7GyYWKBNiXFsygzeh1x5ZXvJu3pRGJ1Db1nuy",
+        b3url: "https://facebook.com/md.sabbir.hossen.873485",
+        b4url: "https://facebook.com/md.sabbir.hossen.873485",
+        b5url: "https://facebook.com/md.sabbir.hossen.873485",
         s1More: "The series is ongoing — <b>every episode is published on Facebook</b>, together with a symbolic cover image.",
         s2Title: "The Great Reset",
         s2Desc: "A ten-chapter research series — a sustained inquiry into the crisis of modern civilization, technology, the structures of power, and the future of humanity.",
@@ -559,6 +582,24 @@
         s1e6: "সুফি ধারার সাত স্তর<small>আত্মার সফরের সাতটি ধাপ</small>",
         s1e7: "বাকেরগঞ্জ ১৮৭৬<small>মহা ঘূর্ণিঝড়ের ১৫০ বছর — ঝড়, দুর্ভিক্ষ ও বিস্মৃতি</small>",
         s1e8: "কৃত্রিম বুদ্ধিমত্তার ভবিষ্যৎ<small>এআই, এজেন্টিক এআই ও এজিআই — তিন পর্বের সিরিজ</small>",
+        s1e9: "পানি-রাজনীতি<small>নদী দিয়ে যেভাবে একটা দেশকে শাসন করা যায়</small>",
+        s1e10: "বইয়ের মৃত্যু<small>পড়া যখন স্ক্রল হয়</small>",
+        readFb: "ফেসবুকে পড়ুন &rarr;",
+        s1e1url: "https://www.facebook.com/100073523007908/posts/pfbid034AM3rN7XPkt2PMnDHnMJLExtzt3wFp36xxmVUVm25nUDHaM7rXXoCmhFHv6z",
+        s1e2url: "https://www.facebook.com/100073523007908/posts/pfbid0UimxiCvJygv8bwi4oU5A4tabSyjp97uJEHoL9qnjq8uwu43gJiSYN1EsQjztc8oUl/",
+        s1e3url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e4url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e5url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e6url: "https://www.facebook.com/100073523007908/posts/pfbid0hj6DBGWm4tNVu8Cn2M8Rn3GmqugbmUfusPNvF3dhVK3gKRdQPRfBaT7Bzt7189mSl/",
+        s1e7url: "https://www.facebook.com/100073523007908/posts/pfbid02kdvn68o54BQDszxM2Ti1KM2feGujHXWkoE5zWjNmgnhF57r12bqjia1HWCu7XvESl/",
+        s1e8url: "https://facebook.com/md.sabbir.hossen.873485",
+        s1e9url: "https://www.facebook.com/100073523007908/posts/pfbid033Ld1ZoJ1hKMvtEGKPpBvdmo48c3QjsBSWexMc9N64SbE4fPAtu3Z2bgLuy7cMxeFl/",
+        s1e10url: "https://www.facebook.com/100073523007908/posts/pfbid0U29fk3oFU2ieotL2EJEFkUPDQ33gFmcuctCJLyYdrmbiBb35Bbw8fGVjkZ3y6dkYl/",
+        b1url: "https://facebook.com/md.sabbir.hossen.873485",
+        b2url: "https://www.facebook.com/100073523007908/posts/pfbid02RHFLri7uR4RDkT8FnidNebj7GyYWKBNiXFsygzeh1x5ZXvJu3pRGJ1Db1nuy",
+        b3url: "https://facebook.com/md.sabbir.hossen.873485",
+        b4url: "https://facebook.com/md.sabbir.hossen.873485",
+        b5url: "https://facebook.com/md.sabbir.hossen.873485",
         s1More: "সিরিজটি চলমান — <b>প্রতিটি পর্ব ফেসবুকে প্রকাশিত হয়</b>, সঙ্গে থাকে একটি প্রতীকী প্রচ্ছদচিত্র।",
         s2Title: "দ্য গ্রেট রিসেট",
         s2Desc: "দশ অধ্যায়ের গবেষণা সিরিজ — আধুনিক সভ্যতার সংকট, প্রযুক্তি, ক্ষমতার কাঠামো ও মানুষের ভবিষ্যৎ নিয়ে ধারাবাহিক অনুসন্ধান।",
@@ -609,6 +650,11 @@
       document.querySelectorAll('[data-i18n]').forEach(function(el){
         var key = el.getAttribute('data-i18n');
         if (d[key] !== undefined) el.innerHTML = d[key];
+      });
+      document.querySelectorAll('[data-href-i18n]').forEach(function(el){
+        var hk = el.getAttribute('data-href-i18n');
+        var hv = d[hk];
+        if (typeof hv === 'string' && hv.trim()) el.setAttribute('href', hv.trim());
       });
       document.documentElement.lang = (lang === 'bn') ? 'bn' : 'en';
       document.title = d.title;
