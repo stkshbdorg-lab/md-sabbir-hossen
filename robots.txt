@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /md-sabbir-hossen/admin.html
 
 Sitemap: https://stkshbdorg-lab.github.io/md-sabbir-hossen/sitemap.xml
