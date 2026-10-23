@@ -157,8 +157,6 @@
   .entries .ttl{font-size:1.08rem;color:var(--paper)}
   .entries .ttl small{display:block;font-size:.94rem;color:var(--muted);line-height:1.8}
   .entries .tag{margin-left:auto;flex:0 0 auto;font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:2px 12px;border-radius:999px;white-space:nowrap}
-  .entries .read-link{margin-left:auto;flex:0 0 auto;font-size:.82rem;color:var(--gold);text-decoration:none;border:1px solid var(--line);padding:3px 14px;border-radius:999px;white-space:nowrap;transition:background .25s,color .25s}
-  .entries .read-link:hover{background:var(--gold);color:#1a1305}
   .entries li{flex-wrap:wrap}
   .two-col{columns:2;column-gap:52px}
   .two-col li{break-inside:avoid}
@@ -202,6 +200,23 @@
   .wa-float:hover{background:#35d374;transform:translateY(-2px)}
   .wa-float svg{width:30px;height:30px;fill:#fff}
 
+  /* ---------- detail modal ---------- */
+  .entries li[data-detail]{cursor:pointer}
+  .entries li[data-detail]:hover .ttl{color:var(--gold)}
+  .modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(5,3,1,.8);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:22px}
+  .modal-overlay.open{display:flex}
+  .modal-card{position:relative;max-width:640px;width:100%;max-height:86vh;overflow:auto;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:12px;padding:44px 40px 36px;animation:rise .35s ease both}
+  .modal-close{position:absolute;top:10px;right:14px;background:transparent;border:0;color:var(--muted);font-size:1.9rem;cursor:pointer;line-height:1;padding:4px 10px}
+  .modal-close:hover{color:var(--gold)}
+  .modal-cat{display:inline-block;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:3px 14px;margin-bottom:16px}
+  .modal-card h3{font-size:1.6rem;line-height:1.55;margin-bottom:14px}
+  .modal-summary{font-size:1.08rem;color:var(--paper-dim);line-height:2;margin-bottom:10px}
+  .modal-soon{color:var(--muted);font-size:.95rem;margin-top:20px}
+  /* ---------- quotes ---------- */
+  .quotes-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .quote-card{border:1px solid var(--line-faint);background:var(--panel);border-radius:10px;padding:30px 28px 24px;position:relative}
+  .quote-card::before{content:"\201C";position:absolute;top:2px;left:16px;font-size:2.8rem;color:var(--gold);opacity:.45;font-family:Georgia,serif}
+  .quote-card blockquote{font-size:1.04rem;line-height:1.95;color:var(--paper-dim);padding-top:10px}
   footer.site{border-top:1px solid var(--line-faint);padding:34px 0 46px;text-align:center;color:var(--muted);font-size:.92rem}
   footer.site .en{letter-spacing:.24em;text-transform:uppercase;font-size:.72rem;color:var(--gold-soft)}
 
@@ -254,6 +269,7 @@
         <a href="#writing" data-i18n="navWriting">Writings</a>
         <a href="#timeline" data-i18n="navTimeline">Timeline</a>
         <a href="#philosophy" data-i18n="navPhilosophy">Philosophy</a>
+        <a href="#quotes" data-i18n="navQuotes">Quotes</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       <div class="lang-switch" role="group" aria-label="Language / ভাষা">
@@ -295,6 +311,7 @@
       <div>
         <p class="body dropcap" data-i18n="aboutP1">MD Sabbir Hossen is a researcher and writer from <strong>Satkhira</strong>, Bangladesh. He researches society, history, science and religion — to question, to examine closely, and to face honest counter-arguments is his method. He is a devoted lover of literature and a knowledge-thirsty reader.</p>
         <p class="body" data-i18n="aboutP2">He writes long, research-based documentary-style essays, philosophical pieces, and psychology-based detective novels. His writings are published on Facebook — in a daily rhythm, as serialized series.</p>
+        <p class="body" data-i18n="aboutP3"></p>
         <div class="stat-row">
           <div class="stat"><div class="num" data-i18n="stat1Num">10</div><div class="lbl" data-i18n="stat1Lbl">Chapters — The Great Reset</div></div>
           <div class="stat"><div class="num" data-i18n="stat2Num">5</div><div class="lbl" data-i18n="stat2Lbl">Books — Aniket–Rahat Series</div></div>
@@ -320,18 +337,18 @@
       <div class="shelf-head"><h3 data-i18n="s1Title">Facebook Documentary</h3><span class="mark en">Series · Documentary Essays</span></div>
       <p data-i18n="s1Desc">A serialized series of fact-based, long-form, documentary-style essays in Bangla — deep analysis of history, politics, society and civilization, where every claim is accompanied by an honest counter-argument.</p>
       <ul class="entries two-col">
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e1">Bread and Circuses<small>The ancient strategy of keeping the masses distracted</small></span><a class="read-link" data-href-i18n="s1e1url" href="https://www.facebook.com/100073523007908/posts/pfbid034AM3rN7XPkt2PMnDHnMJLExtzt3wFp36xxmVUVm25nUDHaM7rXXoCmhFHv6z" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e2">Divide and Rule<small>A history of the politics of division</small></span><a class="read-link" data-href-i18n="s1e2url" href="https://www.facebook.com/100073523007908/posts/pfbid0UimxiCvJygv8bwi4oU5A4tabSyjp97uJEHoL9qnjq8uwu43gJiSYN1EsQjztc8oUl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e3">The Debt Trap<small>From microcredit to credit cards — the polite face of modern slavery</small></span><a class="read-link" style="display:none" data-href-i18n="s1e3url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e4">The Detective in Your Pocket<small>What your phone knows about you</small></span><a class="read-link" style="display:none" data-href-i18n="s1e4url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e5">The Education Factory<small>What does school actually make — people, or obedient workers?</small></span><a class="read-link" style="display:none" data-href-i18n="s1e5url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e6">The Seven Levels of the Sufi Path<small>Seven steps in the journey of the soul</small></span><a class="read-link" data-href-i18n="s1e6url" href="https://www.facebook.com/100073523007908/posts/pfbid0hj6DBGWm4tNVu8Cn2M8Rn3GmqugbmUfusPNvF3dhVK3gKRdQPRfBaT7Bzt7189mSl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e7">Bakerganj 1876<small>150 years of the great cyclone — storm, famine and forgetting</small></span><a class="read-link" data-href-i18n="s1e7url" href="https://www.facebook.com/100073523007908/posts/pfbid02kdvn68o54BQDszxM2Ti1KM2feGujHXWkoE5zWjNmgnhF57r12bqjia1HWCu7XvESl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e8">The Future of Artificial Intelligence<small>AI, agentic AI and AGI — a three-part series</small></span><a class="read-link" style="display:none" data-href-i18n="s1e8url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e9">Water Politics<small>How a country can be ruled through its rivers</small></span><a class="read-link" data-href-i18n="s1e9url" href="https://www.facebook.com/100073523007908/posts/pfbid033Ld1ZoJ1hKMvtEGKPpBvdmo48c3QjsBSWexMc9N64SbE4fPAtu3Z2bgLuy7cMxeFl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e10">The Death of the Book<small>When reading becomes scrolling</small></span><a class="read-link" data-href-i18n="s1e10url" href="https://www.facebook.com/100073523007908/posts/pfbid0U29fk3oFU2ieotL2EJEFkUPDQ33gFmcuctCJLyYdrmbiBb35Bbw8fGVjkZ3y6dkYl/" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e11">Agentic AI: The Step Beyond Chatbots<small>Benefits, differences, and what agents can do — a detailed guide</small></span><a class="read-link" data-href-i18n="s1e11url" href="https://docs.google.com/document/d/1XPlt8TB3KzR48LgQpq8iJTwXpIzhOeMLda2vzrama20/edit?usp=drivesdk" target="_blank" rel="noopener"><span data-i18n="readDoc">Read the document &rarr;</span></a></li>
-        <li><span class="idx">—</span><span class="ttl" data-i18n="s1e12">Sufi Philosophy and History<small>A 54-chapter outline</small></span><a class="read-link" data-href-i18n="s1e12url" href="https://docs.google.com/document/d/10XkJ05t1dlXoF6V_O5bveJ0sxEVfoZLyhkMsbTIJY2Y/edit?usp=drivesdk" target="_blank" rel="noopener"><span data-i18n="readDoc">Read the document &rarr;</span></a></li>
+        <li data-detail="s1e1"><span class="idx">—</span><span class="ttl" data-i18n="s1e1">Bread and Circuses<small>The ancient strategy of keeping the masses distracted</small></span></li>
+        <li data-detail="s1e2"><span class="idx">—</span><span class="ttl" data-i18n="s1e2">Divide and Rule<small>A history of the politics of division</small></span></li>
+        <li data-detail="s1e3"><span class="idx">—</span><span class="ttl" data-i18n="s1e3">The Debt Trap<small>From microcredit to credit cards — the polite face of modern slavery</small></span></li>
+        <li data-detail="s1e4"><span class="idx">—</span><span class="ttl" data-i18n="s1e4">The Detective in Your Pocket<small>What your phone knows about you</small></span></li>
+        <li data-detail="s1e5"><span class="idx">—</span><span class="ttl" data-i18n="s1e5">The Education Factory<small>What does school actually make — people, or obedient workers?</small></span></li>
+        <li data-detail="s1e6"><span class="idx">—</span><span class="ttl" data-i18n="s1e6">The Seven Levels of the Sufi Path<small>Seven steps in the journey of the soul</small></span></li>
+        <li data-detail="s1e7"><span class="idx">—</span><span class="ttl" data-i18n="s1e7">Bakerganj 1876<small>150 years of the great cyclone — storm, famine and forgetting</small></span></li>
+        <li data-detail="s1e8"><span class="idx">—</span><span class="ttl" data-i18n="s1e8">The Future of Artificial Intelligence<small>AI, agentic AI and AGI — a three-part series</small></span></li>
+        <li data-detail="s1e9"><span class="idx">—</span><span class="ttl" data-i18n="s1e9">Water Politics<small>How a country can be ruled through its rivers</small></span></li>
+        <li data-detail="s1e10"><span class="idx">—</span><span class="ttl" data-i18n="s1e10">The Death of the Book<small>When reading becomes scrolling</small></span></li>
+        <li data-detail="s1e11"><span class="idx">—</span><span class="ttl" data-i18n="s1e11">Agentic AI: The Step Beyond Chatbots<small>Benefits, differences, and what agents can do — a detailed guide</small></span></li>
+        <li data-detail="s1e12"><span class="idx">—</span><span class="ttl" data-i18n="s1e12">Sufi Philosophy and History<small>A 54-chapter outline</small></span></li>
       </ul>
       <p class="more" data-i18n="s1More">The series is ongoing — <b>every episode is published on Facebook</b>, together with a symbolic cover image.</p>
     </article>
@@ -357,11 +374,11 @@
       <div class="shelf-head"><h3 data-i18n="s3Title">The Aniket–Rahat Detective Series</h3><span class="mark en">Detective Novels · 5 Books</span></div>
       <p data-i18n="s3Desc">Psychology-based Bangla detective novels. The detective <strong>Aniket Chowdhury</strong> — a former psychology teacher who collects criminals' "excuses"; and his narrator-companion <strong>Rahat Hasan</strong>. Every case stands on the real ground of years, dates and contemporary events.</p>
       <ul class="entries">
-        <li><span class="idx" data-i18n="b1i">P</span><span class="ttl" data-i18n="b1t">The Excuse Collector<small>Prequel — the story of Aniket and Rahat's first meeting</small></span><a class="read-link" style="display:none" data-href-i18n="b1url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b1tag">Prequel</span></li>
-        <li><span class="idx" data-i18n="b2i">N</span><span class="ttl" data-i18n="b2t">Watermark of a Shraban Night<small>A mystery on a monsoon night in Joltungi, a haor village</small></span><a class="read-link" data-href-i18n="b2url" href="https://www.facebook.com/100073523007908/posts/pfbid02RHFLri7uR4RDkT8FnidNebj7GyYWKBNiXFsygzeh1x5ZXvJu3pRGJ1Db1nuy" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b2tag">First Novel</span></li>
-        <li><span class="idx" data-i18n="b3i">01</span><span class="ttl" data-i18n="b3t">The Second Death<small>The real death of a man "dead" in a launch sinking — on the night of the World Cup final</small></span><a class="read-link" style="display:none" data-href-i18n="b3url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b3tag">Case #1</span></li>
-        <li><span class="idx" data-i18n="b4i">02</span><span class="ttl" data-i18n="b4t">The Last Letter<small>Postmaster Karim Box's last letter arrived two days late</small></span><a class="read-link" style="display:none" data-href-i18n="b4url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b4tag">Case #2</span></li>
-        <li><span class="idx" data-i18n="b5i">03</span><span class="ttl" data-i18n="b5t">The Hidden Treasure<small>Four "accidents" in one Barisal family — and the trap of a 1971 diary</small></span><a class="read-link" style="display:none" data-href-i18n="b5url" href="https://facebook.com/md.sabbir.hossen.873485" target="_blank" rel="noopener"><span data-i18n="readFb">Read on Facebook &rarr;</span></a><span class="tag" data-i18n="b5tag">Case #3</span></li>
+        <li data-detail="b1"><span class="idx" data-i18n="b1i">P</span><span class="ttl" data-i18n="b1t">The Excuse Collector<small>Prequel — the story of Aniket and Rahat's first meeting</small></span><span class="tag" data-i18n="b1tag">Prequel</span></li>
+        <li data-detail="b2"><span class="idx" data-i18n="b2i">N</span><span class="ttl" data-i18n="b2t">Watermark of a Shraban Night<small>A mystery on a monsoon night in Joltungi, a haor village</small></span><span class="tag" data-i18n="b2tag">First Novel</span></li>
+        <li data-detail="b3"><span class="idx" data-i18n="b3i">01</span><span class="ttl" data-i18n="b3t">The Second Death<small>The real death of a man "dead" in a launch sinking — on the night of the World Cup final</small></span><span class="tag" data-i18n="b3tag">Case #1</span></li>
+        <li data-detail="b4"><span class="idx" data-i18n="b4i">02</span><span class="ttl" data-i18n="b4t">The Last Letter<small>Postmaster Karim Box's last letter arrived two days late</small></span><span class="tag" data-i18n="b4tag">Case #2</span></li>
+        <li data-detail="b5"><span class="idx" data-i18n="b5i">03</span><span class="ttl" data-i18n="b5t">The Hidden Treasure<small>Four "accidents" in one Barisal family — and the trap of a 1971 diary</small></span><span class="tag" data-i18n="b5tag">Case #3</span></li>
       </ul>
     </article>
   </section>
@@ -394,6 +411,23 @@
     <div class="mark">✦ ✦ ✦</div>
     <blockquote data-i18n="philQuote">I do not write for likes, comments or views — <em>I write to preserve myself.</em> The man of flesh and blood will one day die, and his power to think anew will end with him; but this self that remains within the writing may live on for centuries — from where I can be imagined, and thought of, anew.</blockquote>
     <p class="att" data-i18n="philAtt">— Sabbir, on why he writes</p>
+  </section>
+
+
+  <!-- ================= QUOTES ================= -->
+  <section id="quotes">
+    <div class="sec-head"><span class="no" data-i18n="no5">05</span><h2 data-i18n="qH">Sayings</h2><span class="en" data-i18n="qLabel">Quotes</span><span class="rule"></span></div>
+    <div class="quotes-grid">
+      <figure class="quote-card"><blockquote data-i18n="q1"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q2"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q3"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q4"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q5"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q6"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q7"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q8"></blockquote></figure>
+    </div>
+    <p class="more" data-i18n="qMore" style="margin-top:22px"></p>
   </section>
 
   <!-- ================= CONTACT ================= -->
@@ -435,6 +469,18 @@
 <a class="wa-float" id="waFloat" href="https://wa.me/8801911354244" target="_blank" rel="noopener" aria-label="Chat with MD Sabbir Hossen on WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 2.6c-7.4 0-13.4 6-13.4 13.4 0 2.37.62 4.68 1.8 6.72L2.5 29.5l6.95-1.82a13.36 13.36 0 0 0 6.59 1.69h.01c7.4 0 13.4-6 13.4-13.4 0-3.58-1.4-6.95-3.93-9.48A13.33 13.33 0 0 0 16.04 2.6Zm0 24.42h-.01a11.05 11.05 0 0 1-5.64-1.55l-.4-.24-4.13 1.08 1.1-4.03-.26-.41a11.02 11.02 0 0 1-1.69-5.87c0-6.09 4.96-11.04 11.05-11.04 2.95 0 5.72 1.15 7.81 3.24a11 11 0 0 1 3.23 7.8c0 6.09-4.96 11.02-11.06 11.02Zm6.07-8.25c-.33-.17-1.97-.97-2.27-1.08-.3-.11-.52-.17-.74.17-.22.33-.85 1.08-1.04 1.3-.19.22-.39.25-.72.08-.33-.17-1.4-.52-2.67-1.65-.99-.88-1.65-1.97-1.84-2.3-.19-.33-.02-.51.15-.68.15-.15.33-.39.5-.58.17-.19.22-.33.33-.55.11-.22.06-.41-.03-.58-.08-.17-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.58.08-.88.41-.3.33-1.15 1.12-1.15 2.72s1.18 3.16 1.34 3.38c.17.22 2.32 3.54 5.62 4.97.79.34 1.4.54 1.88.69.79.25 1.51.22 2.08.13.63-.09 1.97-.8 2.25-1.57.28-.77.28-1.43.19-1.57-.08-.14-.3-.22-.63-.39Z"/></svg>
 </a>
+
+<!-- ================= DETAIL MODAL ================= -->
+<div class="modal-overlay" id="detailModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-cat" id="modalCat"></div>
+    <h3 id="modalTitle"></h3>
+    <p class="modal-summary" id="modalSummary"></p>
+    <a class="btn" id="modalRead" href="#" target="_blank" rel="noopener"><span data-i18n="readFull">Read the full piece &rarr;</span></a>
+    <p class="modal-soon" id="modalSoon" data-i18n="comingSoon" style="display:none">Publishing soon</p>
+  </div>
+</div>
 
 <script>
   (function(){
@@ -512,11 +558,38 @@
         s1e12: "Sufi Philosophy and History<small>A 54-chapter outline</small>",
         s1e12url: "https://docs.google.com/document/d/10XkJ05t1dlXoF6V_O5bveJ0sxEVfoZLyhkMsbTIJY2Y/edit?usp=drivesdk",
         readDoc: "Read the document &rarr;",
-        b1url: "https://facebook.com/md.sabbir.hossen.873485",
-        b2url: "https://www.facebook.com/100073523007908/posts/pfbid02RHFLri7uR4RDkT8FnidNebj7GyYWKBNiXFsygzeh1x5ZXvJu3pRGJ1Db1nuy",
-        b3url: "https://facebook.com/md.sabbir.hossen.873485",
-        b4url: "https://facebook.com/md.sabbir.hossen.873485",
-        b5url: "https://facebook.com/md.sabbir.hossen.873485",
+        b1sum: "The story of Aniket and Rahat's first meeting. Aniket Chowdhury, the former psychology teacher who collects criminals' 'excuses', and his narrator-companion Rahat Hasan — where their journey begins.",
+        b2sum: "A monsoon-night mystery in Joltungi, a haor village. The Aniket-Rahat duo's first major case in this twelve-chapter novel — where the watermark of truth surfaces on rain-wet water.",
+        b3sum: "Altaf Hossain 'died' in the 2018 launch sinking yet lived four years in secret — then met his real death on World Cup final night. The killer: his own son Russell, whose excuse was 'I wanted to save my family.'",
+        b4sum: "Postmaster Karim Box's last letter arrived two days late — he had died of slow poisoning. His daughter-in-law Shirin killed him with sleeping pills over six weeks; the dated food samples in his trunk are the key evidence.",
+        b5sum: "Four 'accidental' deaths in one year in Barisal's Mallik family. The killer is eldest son Jamal, an ex-bank manager, who forged a 1971 gold-mohar diary to hunt the real treasure, murdering one by one. The tin box held no gold — only a Hindu neighbor's jewelry and a letter.",
+        s1e10sum: "'The book didn't die. Reading did.' Bookshops grow, fairs crowd — yet the habit of deep reading silently dies. When reading becomes scrolling, what happens to our relationship with knowledge?",
+        s1e11sum: "Chatbots only answered; agents act. What agentic AI really is, its seven fundamental differences from chatbots, and what agents can actually do — a detailed guide with benefits.",
+        s1e12sum: "A 54-chapter outline of Sufi philosophy and history — the soul's long journey through the levels of nafs, the stages of love, and the search for ultimate truth.",
+        s1e1sum: "Ancient Rome kept its masses quiet with bread and circuses. This episode shows how the same formula returned in modern times — behind entertainment, sports and endless scrolling — and how our attention is quietly being controlled.",
+        s1e2sum: "The most successful ruling formula of 200 years — 'divide and rule'. From the 1905 Partition of Bengal to today's politics: the history and modern forms of division strategy, with honest counterarguments beside every claim.",
+        s1e3sum: "From microcredit to credit cards — how debt became the polite face of modern slavery, and how we are caged in the name of freedom.",
+        s1e4sum: "What does your phone know about you? An episode on the silent detective in your pocket — data collection, surveillance and the privacy crisis.",
+        s1e5sum: "What does school actually produce — independent minds or obedient workers? A deep analysis of the factory character of modern education.",
+        s1e6sum: "Sufi saints saw love as a ladder — step after step, each deeper than the last. From Majnun's story to the soul's seven levels: a complete map of love.",
+        s1e7sum: "31 October 1876 — exactly 150 years ago tonight, the sea rose like a wall over the settlements. The great cyclone, the famine, and the forgetting; this piece is in memory of that forgotten night.",
+        s1e8sum: "AI, agentic AI and AGI — a three-part research series on the three stages of artificial intelligence, the future of jobs, food-crisis fears and the questions facing civilization.",
+        s1e9sum: "War is no longer fought with guns alone — water is the 21st century's silent weapon. From Farakka to 54 shared rivers: how upstream dams control a downstream nation's fate.",
+        docCat: "Documentary",
+        novelCat: "Novel",
+        readFull: "Read the full piece &rarr;",
+        comingSoon: "Publishing soon",
+        qH: "Sayings",
+        qLabel: "Quotes",
+        qMore: "Lines from his Facebook writings — philosophy in a sentence or two.",
+        no5: "05",
+        navQuotes: "Quotes",
+        aboutP3: "His method is simple — to question, to examine closely, and to set an honest counterargument beside every claim. He writes every day — one Facebook Documentary and one free-topic piece; the thirst to know is the lifeblood of all he writes.",
+        b1url: "https://docs.google.com/document/d/1andVd6Dz7T-lHJdRpnq52x4cTHmBtBeXf_GJvqz_Ng8/edit?usp=drivesdk\",
+        b2url: "https://docs.google.com/document/d/1XQ5ePxzj88ffAivI3jbpoZoYnOqZiVfPOIUOmAqCk2Q/edit?usp=drivesdk\",
+        b3url: "https://docs.google.com/document/d/1Lk4psoNbEI3YkWNXh13Dh_-5KV2x9oNmfRCYJJpML2o/edit?usp=drivesdk\",
+        b4url: "https://docs.google.com/document/d/1uIIE40Fb4LkA5T95goRuvpS4bTpmeBV2yKDio6MEf4E/edit?usp=drivesdk\",
+        b5url: "https://docs.google.com/document/d/1ea-YpRKbx7bMz_eWGfHolB-Afey2eJCEzkiWJfO_qj0/edit?usp=drivesdk\",
         s1More: "The series is ongoing — <b>every episode is published on Facebook</b>, together with a symbolic cover image.",
         s2Title: "The Great Reset",
         s2Desc: "A ten-chapter research series — a sustained inquiry into the crisis of modern civilization, technology, the structures of power, and the future of humanity.",
@@ -607,11 +680,38 @@
         s1e12: "সুফি দর্শন ও ইতিহাস<small>৫৪ অধ্যায়ের রূপরেখা</small>",
         s1e12url: "https://docs.google.com/document/d/10XkJ05t1dlXoF6V_O5bveJ0sxEVfoZLyhkMsbTIJY2Y/edit?usp=drivesdk",
         readDoc: "ডকুমেন্ট পড়ুন &rarr;",
-        b1url: "https://facebook.com/md.sabbir.hossen.873485",
-        b2url: "https://www.facebook.com/100073523007908/posts/pfbid02RHFLri7uR4RDkT8FnidNebj7GyYWKBNiXFsygzeh1x5ZXvJu3pRGJ1Db1nuy",
-        b3url: "https://facebook.com/md.sabbir.hossen.873485",
-        b4url: "https://facebook.com/md.sabbir.hossen.873485",
-        b5url: "https://facebook.com/md.sabbir.hossen.873485",
+        b1sum: "অনিকেত ও রাহাতের প্রথম সাক্ষাতের গল্প। মনোবিজ্ঞানের প্রাক্তন শিক্ষক অনিকেত চৌধুরী — যিনি অপরাধীদের 'অজুহাত' সংগ্রহ করেন — আর তাঁর কথক-সঙ্গী রাহাত হাসান; এই প্রিক্যুয়েলে যেখান থেকে তাঁদের যাত্রা শুরু।",
+        b2sum: "হাওরের জলটুঙ্গি গ্রামে শ্রাবণের এক রাতের রহস্য। বারো অধ্যায়ের এই উপন্যাসে অনিকেত-রাহাত জুটির প্রথম বড় কেস — যেখানে বৃষ্টিভেজা রাতে পানির ওপর ভেসে ওঠে সত্যের জলছাপ।",
+        b3sum: "২০১৮-এর লঞ্চডুবিতে 'মৃত' আলতাফ হোসেন বেঁচে ছিলেন চার বছর গোপনে — তারপর বিশ্বকাপ ফাইনালের রাতে তাঁর সত্যিকারের মৃত্যু হলো। খুনী তাঁরই ছেলে রাসেল; তার অজুহাত — 'আমি পরিবারকে বাঁচাতে চেয়েছিলাম।'",
+        b4sum: "ডাকপিয়ন করিম বক্সের শেষ চিঠি পৌঁছল দুই দিন দেরিতে — ততদিনে তিনি মারা গেছেন ধীর বিষপ্রয়োগে। পুত্রবধূ শিরিন ছয় সপ্তাহ ধরে ঘুমের ওষুধ মিশিয়ে হত্যা করে তাঁকে; ট্রাঙ্কে রাখা তারিখ-লেখা খাবারের নমুনাই মূল প্রমাণ।",
+        b5sum: "বরিশালের মল্লিক পরিবারে এক বছরে চারটি 'দুর্ঘটনায়' মৃত্যু। খুনী বড় ছেলে জামাল — প্রাক্তন ব্যাংক ম্যানেজার — যিনি ১৯৭১-এর সোনার মোহরের জাল ডায়েরি দিয়ে আসল গুপ্তধনের খোঁজে একের পর এক খুন করেন। টিনের বাক্সে সোনা ছিল না; ছিল এক হিন্দু প্রতিবেশীর গয়না আর একটি চিঠি।",
+        s1e10sum: "'বই মরেনি। মরেছে পড়া।' বইয়ের দোকান বাড়ছে, বইমেলায় ভিড় হচ্ছে — অথচ মন দিয়ে পড়ার অভ্যাস নীরবে মরে যাচ্ছে। পড়া যখন স্ক্রল হয়, তখন জ্ঞানের সঙ্গে আমাদের সম্পর্কের কী হয়?",
+        s1e11sum: "চ্যাটবট শুধু উত্তর দিত; এজেন্ট কাজ করে। এজেন্টিক এআই আসলে কী, চ্যাটবটের সঙ্গে এর সাতটি মৌলিক পার্থক্য কোথায়, আর এজেন্ট দিয়ে বাস্তবে কী কী কাজ করা সম্ভব — সুবিধাসহ বিস্তারিত গাইড।",
+        s1e12sum: "সুফি দর্শন ও ইতিহাসের ৫৪ অধ্যায়ের রূপরেখা — নাফসের স্তর, প্রেমের ধাপ আর পরম সত্যের সন্ধানে আত্মার সুদীর্ঘ সফরের মানচিত্র।",
+        s1e1sum: "প্রাচীন রোমে জনতাকে শান্ত রাখার কৌশল ছিল রুটি আর তামাশা। এই পর্বে দেখানো হয়েছে — আধুনিক যুগে সেই একই ফর্মুলা ফিরে এসেছে বিনোদন, খেলা আর অন্তহীন স্ক্রলের আড়ালে; আর আমাদের মনোযোগ কীভাবে নীরবে নিয়ন্ত্রিত হচ্ছে।",
+        s1e2sum: "দুইশো বছর ধরে শাসনের সবচেয়ে সফল ফর্মুলা — 'ভাগ করো, শাসন করো'। ব্রিটিশ আমলের বঙ্গভঙ্গ থেকে আজকের রাজনীতি পর্যন্ত বিভাজনের কৌশল, ইতিহাস ও আধুনিক রূপের বিশ্লেষণ — প্রতিটি দাবির পাশে সৎ পাল্টা-যুক্তিসহ।",
+        s1e3sum: "ক্ষুদ্রঋণ থেকে ক্রেডিট কার্ড — ঋণ কীভাবে হয়ে উঠল আধুনিক দাসত্বের ভদ্র রূপ। অর্থনৈতিক শেকলের এই বিশ্লেষণে দেখা যায়, স্বাধীনতার নামে আমরা কীভাবে ঋণের খাঁচায় বন্দি।",
+        s1e4sum: "তোমার ফোন তোমার সম্পর্কে কী কী জানে? পকেটের এই নীরব গোয়েন্দার তথ্য-সংগ্রহ, নজরদারি আর গোপনীয়তার সংকট নিয়ে একটি পর্ব।",
+        s1e5sum: "স্কুল আসলে কী তৈরি করে — স্বাধীন চিন্তার মানুষ, না অনুগত শ্রমিক? আধুনিক শিক্ষাব্যবস্থার কারখানা-চরিত্র আর তার পেছনের দর্শনের গভীর বিশ্লেষণ।",
+        s1e6sum: "সুফি সাধকরা প্রেমকে দেখেছেন সিঁড়ির মতো — একটার পর একটা ধাপ, প্রতিটা আগেরটার চেয়ে গভীর। মজনুর গল্প থেকে শুরু করে আত্মার সাত স্তরের এই সফরে ভালোবাসার পূর্ণাঙ্গ মানচিত্র।",
+        s1e7sum: "১৮৭৬ সালের ৩১ অক্টোবর — ঠিক ১৫০ বছর আগের এই রাতে সাগর দেয়ালের মতো উঠে এসেছিল জনপদের ওপর। মহা ঘূর্ণিঝড়, দুর্ভিক্ষ আর বিস্মৃতির ইতিহাস; এই লেখা সেই ভুলে যাওয়া রাতের স্মরণে।",
+        s1e8sum: "এআই, এজেন্টিক এআই ও এজিআই — কৃত্রিম বুদ্ধিমত্তার তিন ধাপ, চাকরির ভবিষ্যৎ, খাদ্য-সংকটের আশঙ্কা আর মানবসভ্যতার প্রশ্ন নিয়ে তিন পর্বের গবেষণা সিরিজ।",
+        s1e9sum: "যুদ্ধ এখন আর শুধু বন্দুক-কামানে হয় না — একবিংশ শতাব্দীর সবচেয়ে নীরব অস্ত্র পানি। ফারাক্কা থেকে ৫৪টি অভিন্ন নদী: উজানের বাঁধ কীভাবে ভাটির দেশের ভাগ্য নিয়ন্ত্রণ করে, তার বিশ্লেষণ।",
+        docCat: "ডকুমেন্টারি",
+        novelCat: "উপন্যাস",
+        readFull: "সম্পূর্ণ পড়ুন &rarr;",
+        comingSoon: "শীঘ্রই প্রকাশিত হবে",
+        qH: "উক্তি",
+        qLabel: "উক্তি-সংগ্রহ",
+        qMore: "তাঁর ফেসবুক লেখা থেকে — এক-দুই লাইনে দর্শন।",
+        no5: "০৫",
+        navQuotes: "উক্তি",
+        aboutP3: "তাঁর পদ্ধতি সরল — প্রশ্ন করা, খুঁটিয়ে দেখা, আর প্রতিটি দাবির পাশে সৎ পাল্টা-যুক্তি দাঁড় করানো। তিনি প্রতিদিন লেখেন — একটি ফেসবুক ডকুমেন্টারি, আর একটি মুক্ত বিষয়ের রচনা; জানার আকাঙ্ক্ষাই তাঁর প্রতিটি লেখার প্রাণ।",
+        b1url: "https://docs.google.com/document/d/1andVd6Dz7T-lHJdRpnq52x4cTHmBtBeXf_GJvqz_Ng8/edit?usp=drivesdk\",
+        b2url: "https://docs.google.com/document/d/1XQ5ePxzj88ffAivI3jbpoZoYnOqZiVfPOIUOmAqCk2Q/edit?usp=drivesdk\",
+        b3url: "https://docs.google.com/document/d/1Lk4psoNbEI3YkWNXh13Dh_-5KV2x9oNmfRCYJJpML2o/edit?usp=drivesdk\",
+        b4url: "https://docs.google.com/document/d/1uIIE40Fb4LkA5T95goRuvpS4bTpmeBV2yKDio6MEf4E/edit?usp=drivesdk\",
+        b5url: "https://docs.google.com/document/d/1ea-YpRKbx7bMz_eWGfHolB-Afey2eJCEzkiWJfO_qj0/edit?usp=drivesdk\",
         s1More: "সিরিজটি চলমান — <b>প্রতিটি পর্ব ফেসবুকে প্রকাশিত হয়</b>, সঙ্গে থাকে একটি প্রতীকী প্রচ্ছদচিত্র।",
         s2Title: "দ্য গ্রেট রিসেট",
         s2Desc: "দশ অধ্যায়ের গবেষণা সিরিজ — আধুনিক সভ্যতার সংকট, প্রযুক্তি, ক্ষমতার কাঠামো ও মানুষের ভবিষ্যৎ নিয়ে ধারাবাহিক অনুসন্ধান।",
@@ -655,6 +755,7 @@
     var waFloat = document.getElementById('waFloat');
 
     var currentLang = 'en';
+  var detailKey = null;
     function setLang(lang){
       currentLang = lang;
       var d = I18N[lang];
@@ -663,13 +764,7 @@
         var key = el.getAttribute('data-i18n');
         if (d[key] !== undefined) el.innerHTML = d[key];
       });
-      var PROFILE_URL = 'https://facebook.com/md.sabbir.hossen.873485';
-      document.querySelectorAll('[data-href-i18n]').forEach(function(el){
-        var hk = el.getAttribute('data-href-i18n');
-        var hv = (typeof d[hk] === 'string' && d[hk].trim()) ? d[hk].trim() : el.getAttribute('href');
-        if (hv && hv !== PROFILE_URL) { el.setAttribute('href', hv); el.style.display = ''; }
-        else { el.style.display = 'none'; }
-      });
+
       document.documentElement.lang = (lang === 'bn') ? 'bn' : 'en';
       document.title = d.title;
       if (metaDesc) metaDesc.setAttribute('content', d.metaDesc);
@@ -679,9 +774,43 @@
       btnEn.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
       btnBn.classList.toggle('active', lang === 'bn');
       btnBn.setAttribute('aria-pressed', lang === 'bn' ? 'true' : 'false');
+        if(detailKey) renderDetail();
     }
     btnEn.addEventListener('click', function(){ setLang('en'); });
     btnBn.addEventListener('click', function(){ setLang('bn'); });
+
+    /* ---------- detail modal ---------- */
+    var PROFILE_URL2 = 'https://facebook.com/md.sabbir.hossen.873485';
+    function renderDetail(){
+      if(!detailKey) return;
+      var d = I18N[currentLang], base = detailKey;
+      var t = d[base] || '';
+      document.getElementById('modalTitle').innerHTML = t.split('<small>')[0];
+      document.getElementById('modalCat').textContent = base.charAt(0)==='b' ? (d.novelCat||'') : (d.docCat||'');
+      document.getElementById('modalSummary').innerHTML = d[base+'sum'] || '';
+      var hv = (typeof d[base+'url']==='string' && d[base+'url'].trim()) ? d[base+'url'].trim() : '';
+      var rb = document.getElementById('modalRead'), sn = document.getElementById('modalSoon');
+      if(hv && hv!==PROFILE_URL2){ rb.setAttribute('href',hv); rb.style.display=''; sn.style.display='none'; }
+      else { rb.style.display='none'; sn.style.display=''; }
+    }
+    function openDetail(key){
+      detailKey = key; renderDetail();
+      var ov = document.getElementById('detailModal');
+      ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDetail(){
+      detailKey = null;
+      var ov = document.getElementById('detailModal');
+      ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-detail]').forEach(function(el){
+      el.addEventListener('click', function(){ openDetail(el.getAttribute('data-detail')); });
+    });
+    document.getElementById('modalClose').addEventListener('click', closeDetail);
+    document.getElementById('detailModal').addEventListener('click', function(e){ if(e.target===this) closeDetail(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDetail(); });
 
     /* ---------- live content overrides (edited from admin panel) ---------- */
     fetch('content.json', { cache: 'no-store' })
