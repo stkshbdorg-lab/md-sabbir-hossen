@@ -601,7 +601,9 @@
     var portraitImg = document.getElementById('portraitImg');
     var waFloat = document.getElementById('waFloat');
 
+    var currentLang = 'en';
     function setLang(lang){
+      currentLang = lang;
       var d = I18N[lang];
       if (!d) return;
       document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -620,6 +622,17 @@
     }
     btnEn.addEventListener('click', function(){ setLang('en'); });
     btnBn.addEventListener('click', function(){ setLang('bn'); });
+
+    /* ---------- live content overrides (edited from admin panel) ---------- */
+    fetch('content.json', { cache: 'no-store' })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        if (!data) return;
+        if (data.en) I18N.en = Object.assign({}, I18N.en, data.en);
+        if (data.bn) I18N.bn = Object.assign({}, I18N.bn, data.bn);
+        setLang(currentLang);
+      })
+      .catch(function(){});
   })();
 </script>
 </body>
