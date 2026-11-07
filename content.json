@@ -163,6 +163,19 @@
     "q6": "Silence — the rarest worship of this age.",
     "q7": "We are all speaking, all broadcasting — but who is listening?",
     "q8": "We have each set up a court inside our minds. There, cases run year after year.",
+    "q9": "From the outside, flawless worship; from the inside, all PR, all marketing.",
+    "q10": "We think we are saving time; in truth, time is cutting through us — silently, every day, with every breath.",
+    "q11": "A man builds a house and dies; the house remains. Today I have built such a house — one where my thoughts will live on even when I am gone.",
+    "q12": "They smile at others' completeness and become bridges in others' stories — yet at the end of the day, they have no story of their own.",
+    "q13": "Human memory is short, but the memory of writing is long. Spoken words dissolve into the air; writing remains.",
+    "q14": "In the race to become extraordinary, everyone is exhausted; the one who remains himself is the one who is truly free.",
+    "q15": "History is never the story of one side alone.",
+    "q16": "Every lock can be opened — except the lock of death.",
+    "s0Count": "16 writings",
+    "s1Count": "17 episodes",
+    "s2Count": "10 chapters",
+    "s3Count": "5 books",
+    "s4Count": "16 essays",
     "docCat": "Documentary",
     "novelCat": "Novel",
     "readFull": "Read the full piece &rarr;",
@@ -426,6 +439,19 @@
     "q6": "নীরবতা — এই যুগের সবচেয়ে দুর্লভ ইবাদত।",
     "q7": "আমরা সবাই কথা বলছি, সবাই শোনাচ্ছি — কিন্তু শুনছে কে?",
     "q8": "আমরা সবাই মনের ভেতর একটা করে আদালত বসিয়ে রেখেছি। সেখানে বছরের পর বছর মামলা চলে।",
+    "q9": "বাইরে থেকে দেখলে নিখুঁত ইবাদত; ভেতর থেকে দেখলে পুরোটাই পিআর, পুরোটাই মার্কেটিং।",
+    "q10": "আমরা ভাবি আমরা সময় বাঁচাচ্ছি; আসলে সময় আমাদের কেটে চলেছে — নীরবে, প্রতিদিন, প্রতিটি নিঃশ্বাসে।",
+    "q11": "বাড়ি বানিয়ে মানুষ মরে যায়; বাড়ি থেকে যায়। আমি আজ এমন একটা বাড়ি বানালাম, যেখানে আমি না থাকলেও আমার ভাবনা থাকবে।",
+    "q12": "তারা অন্যের পূর্ণতা দেখে হাসে, অন্যের গল্পে সেতু হয়ে থাকে, কিন্তু দিনশেষে তাদের নিজেদের কোনো গল্প থাকে না।",
+    "q13": "মানুষের স্মৃতি ছোট, কিন্তু লেখার স্মৃতি দীর্ঘ। মুখের কথা বাতাসে মিলায়; লেখা থেকে যায়।",
+    "q14": "অসাধারণ হওয়ার দৌড়ে সবাই ক্লান্ত; যে নিজের মতো থাকে, সে-ই আসলে মুক্ত।",
+    "q15": "ইতিহাস কখনো একপক্ষের গল্প নয়।",
+    "q16": "সব তালা খোলা যায়, মৃত্যুর তালা ছাড়া।",
+    "s0Count": "১৬টি লেখা",
+    "s1Count": "১৭টি পর্ব",
+    "s2Count": "১০টি অধ্যায়",
+    "s3Count": "৫টি বই",
+    "s4Count": "১৬টি প্রবন্ধ",
     "docCat": "ডকুমেন্টারি",
     "novelCat": "উপন্যাস",
     "readFull": "সম্পূর্ণ পড়ুন &rarr;",
@@ -526,5 +552,6 @@
     "e16url": "https://drive.google.com/file/d/1CnovYRSLaJVbo-gkCcGnUlzz9kA1VQn3/view?usp=drivesdk"
   }
 }
+
 
 
