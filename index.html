@@ -147,8 +147,16 @@
   .shelf-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px}
   .shelf-head h3{font-size:1.55rem;font-weight:700}
   .shelf-head .mark{font-size:.8rem;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
-  .shelf > p{color:var(--paper-dim);font-size:1.05rem;margin:16px 0 8px;max-width:46em}
-  .shelf > p strong{color:var(--paper)}
+  .shelf-head{cursor:pointer}
+  .shelf-head .count{font-size:.88rem;color:var(--paper-dim);white-space:nowrap}
+  .shelf-head .chev{color:var(--gold);font-size:1rem;line-height:1;transition:transform .35s}
+  .shelf.open .shelf-head .chev{transform:rotate(180deg)}
+  .shelf:not(.open) .shelf-head{border-bottom:none;padding-bottom:0}
+  .shelf-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+  .shelf.open .shelf-body{grid-template-rows:1fr}
+  .shelf-inner{overflow:hidden;min-height:0}
+  .shelf-inner > p{color:var(--paper-dim);font-size:1.05rem;margin:16px 0 8px;max-width:46em}
+  .shelf-inner > p strong{color:var(--paper)}
   .entries{list-style:none}
   .entries li{display:flex;gap:20px;align-items:baseline;padding:13px 4px;border-bottom:1px solid var(--line-faint);transition:background .25s}
   .entries li:last-child{border-bottom:none}
@@ -334,7 +342,8 @@
     <div class="sec-head"><span class="no" data-i18n="no2">02</span><h2 data-i18n="writingH">The Writing Library</h2><span class="en" data-i18n="writingLabel">Library</span><span class="rule"></span></div>
 
     <article class="shelf">
-      <div class="shelf-head"><h3>সর্বশেষ ডকুমেন্টারি <span class="en">Latest Documentaries</span></h3><span class="mark en">Latest · Documentary</span></div>
+      <div class="shelf-head"><h3>সর্বশেষ ডকুমেন্টারি <span class="en">Latest Documentaries</span></h3><span class="mark en">Latest · Documentary</span><span class="count" data-i18n="s0Count">16 writings</span><span class="chev" aria-hidden="true">▾</span></div>
+      <div class="shelf-body"><div class="shelf-inner">
       <p>নতুন প্রকাশিত ডকুমেন্টারি — সবার উপরে নতুনটি। <span class="en">Newly published documentaries — newest first.</span></p>
       <ul class="entries">
         <li><span class="idx">—</span><span class="ttl"><a href="https://docs.google.com/document/d/1uVpSqI20Lc9jHAZFjcEUsF0hj1fRWWTH3YOcNhH3uhs/edit?usp=drivesdk" target="_blank" rel="noopener">৭ নভেম্বর: যে ভোরে পৃথিবী থমকে দাঁড়িয়েছিল</a><small>৭ নভেম্বর ২০২৬ · 7 November 2026</small></span></li>
@@ -354,10 +363,13 @@
         <li><span class="idx">—</span><span class="ttl"><a href="https://drive.google.com/file/d/1fEHHovfcA9FTEXo8A7gvMGWCzwISnfZq/view?usp=drivesdk" target="_blank" rel="noopener">তেইশের দোরগোড়ায়</a><small>অক্টোবর ২০২৬ · October 2026</small></span></li>
         <li><span class="idx">—</span><span class="ttl"><a href="https://drive.google.com/file/d/1IrmKFwoRBfM22pnjwbiCzmlSfpZKei-0/view?usp=drivesdk" target="_blank" rel="noopener">নিজের ঠিকানা</a><small>অক্টোবর ২০২৬ · October 2026</small></span></li>
       </ul>
+    
+      </div></div>
     </article>
 
     <article class="shelf">
-      <div class="shelf-head"><h3 data-i18n="s1Title">Facebook Documentary</h3><span class="mark en">Series · Documentary Essays</span></div>
+      <div class="shelf-head"><h3 data-i18n="s1Title">Facebook Documentary</h3><span class="mark en">Series · Documentary Essays</span><span class="count" data-i18n="s1Count">17 episodes</span><span class="chev" aria-hidden="true">▾</span></div>
+      <div class="shelf-body"><div class="shelf-inner">
       <p data-i18n="s1Desc">A serialized series of fact-based, long-form, documentary-style essays in Bangla — deep analysis of history, politics, society and civilization, where every claim is accompanied by an honest counter-argument.</p>
       <ul class="entries two-col">
         <li data-detail="s1e1"><span class="idx">—</span><span class="ttl" data-i18n="s1e1">Bread and Circuses<small>The ancient strategy of keeping the masses distracted</small></span></li>
@@ -379,10 +391,13 @@
 <li data-detail="s1e17"><span class="idx">—</span><span class="ttl" data-i18n="s1e17">The Crossroads of History<small>Where faith faced science, power the pen, and war art</small></span></li>
       </ul>
       <p class="more" data-i18n="s1More">The series is ongoing — <b>every episode is published on Facebook</b>, together with a symbolic cover image.</p>
+    
+      </div></div>
     </article>
 
     <article class="shelf">
-      <div class="shelf-head"><h3 data-i18n="s2Title">The Great Reset</h3><span class="mark en">Research Series · 10 Chapters</span></div>
+      <div class="shelf-head"><h3 data-i18n="s2Title">The Great Reset</h3><span class="mark en">Research Series · 10 Chapters</span><span class="count" data-i18n="s2Count">10 chapters</span><span class="chev" aria-hidden="true">▾</span></div>
+      <div class="shelf-body"><div class="shelf-inner">
       <p data-i18n="s2Desc">A ten-chapter research series — a sustained inquiry into the crisis of modern civilization, technology, the structures of power, and the future of humanity.</p>
       <ol class="entries two-col">
         <li data-detail="ch1"><span class="idx" data-i18n="ch1i">01</span><span class="ttl" data-i18n="ch1">Digital Impotence</span></li>
@@ -396,10 +411,13 @@
         <li data-detail="ch9"><span class="idx" data-i18n="ch9i">09</span><span class="ttl" data-i18n="ch9">Modern Slavery and Economic Chains</span></li>
         <li data-detail="ch10"><span class="idx" data-i18n="ch10i">10</span><span class="ttl" data-i18n="ch10">The Path of Resistance</span></li>
       </ol>
+    
+      </div></div>
     </article>
 
     <article class="shelf">
-      <div class="shelf-head"><h3 data-i18n="s3Title">The Aniket–Rahat Detective Series</h3><span class="mark en">Detective Novels · 5 Books</span></div>
+      <div class="shelf-head"><h3 data-i18n="s3Title">The Aniket–Rahat Detective Series</h3><span class="mark en">Detective Novels · 5 Books</span><span class="count" data-i18n="s3Count">5 books</span><span class="chev" aria-hidden="true">▾</span></div>
+      <div class="shelf-body"><div class="shelf-inner">
       <p data-i18n="s3Desc">Psychology-based Bangla detective novels. The detective <strong>Aniket Chowdhury</strong> — a former psychology teacher who collects criminals' "excuses"; and his narrator-companion <strong>Rahat Hasan</strong>. Every case stands on the real ground of years, dates and contemporary events.</p>
       <ul class="entries">
         <li data-detail="b1"><span class="idx" data-i18n="b1i">P</span><span class="ttl" data-i18n="b1t">The Excuse Collector<small>Prequel — the story of Aniket and Rahat's first meeting</small></span><span class="tag" data-i18n="b1tag">Prequel</span></li>
@@ -408,6 +426,8 @@
         <li data-detail="b4"><span class="idx" data-i18n="b4i">02</span><span class="ttl" data-i18n="b4t">The Last Letter<small>Postmaster Karim Box's last letter arrived two days late</small></span><span class="tag" data-i18n="b4tag">Case #2</span></li>
         <li data-detail="b5"><span class="idx" data-i18n="b5i">03</span><span class="ttl" data-i18n="b5t">The Hidden Treasure<small>Four "accidents" in one Barisal family — and the trap of a 1971 diary</small></span><span class="tag" data-i18n="b5tag">Case #3</span></li>
       </ul>
+    
+      </div></div>
     </article>
   </section>
 
@@ -444,7 +464,8 @@
 
 
     <article class="shelf">
-      <div class="shelf-head"><h3 data-i18n="s4Title">Essays</h3><span class="mark" data-i18n="s4Mark">Essays &middot; Ongoing</span></div>
+      <div class="shelf-head"><h3 data-i18n="s4Title">Essays</h3><span class="mark" data-i18n="s4Mark">Essays &middot; Ongoing</span><span class="count" data-i18n="s4Count">16 essays</span><span class="chev" aria-hidden="true">▾</span></div>
+      <div class="shelf-body"><div class="shelf-inner">
       <p data-i18n="s4Desc">Free-topic writings &mdash; philosophy, society and self-reflection; regularly collected from Facebook.</p>
       <ul class="entries two-col">
         <li data-detail="e1"><span class="idx">—</span><span class="ttl" data-i18n="e1">Every Friday, a Week Dies<small>Accounting for time — the trust of a dead week</small></span></li>
@@ -464,6 +485,8 @@
 <li data-detail="e15"><span class="idx">—</span><span class="ttl" data-i18n="e15">The Stone You Carry on Your Own Back<small>A self-inquiry on forgiveness</small></span></li>
 <li data-detail="e16"><span class="idx">—</span><span class="ttl" data-i18n="e16">Myself, in the Language of Metaphor<small>An electron, a royal scribe, and Plato's cave prisoner</small></span></li>
       </ul>
+    
+      </div></div>
     </article>
 
   <!-- ================= QUOTES ================= -->
@@ -478,6 +501,14 @@
       <figure class="quote-card"><blockquote data-i18n="q6"></blockquote></figure>
       <figure class="quote-card"><blockquote data-i18n="q7"></blockquote></figure>
       <figure class="quote-card"><blockquote data-i18n="q8"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q9"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q10"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q11"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q12"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q13"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q14"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q15"></blockquote></figure>
+      <figure class="quote-card"><blockquote data-i18n="q16"></blockquote></figure>
     </div>
     <p class="more" data-i18n="qMore" style="margin-top:22px"></p>
   </section>
@@ -700,7 +731,7 @@
         q5: "The book didn't die. Reading did.",
         q6: "Silence — the rarest worship of this age.",
         q7: "We are all speaking, all broadcasting — but who is listening?",
-        q8: "We have each set up a court inside our minds. There, cases run year after year.",
+        q8: "We have each set up a court inside our minds. There, cases run year after year.", q9: "From the outside, flawless worship; from the inside, all PR, all marketing.", q10: "We think we are saving time; in truth, time is cutting through us — silently, every day, with every breath.", q11: "A man builds a house and dies; the house remains. Today I have built such a house — one where my thoughts will live on even when I am gone.", q12: "They smile at others' completeness and become bridges in others' stories — yet at the end of the day, they have no story of their own.", q13: "Human memory is short, but the memory of writing is long. Spoken words dissolve into the air; writing remains.", q14: "In the race to become extraordinary, everyone is exhausted; the one who remains himself is the one who is truly free.", q15: "History is never the story of one side alone.", q16: "Every lock can be opened — except the lock of death.", s0Count: "16 writings", s1Count: "17 episodes", s2Count: "10 chapters", s3Count: "5 books", s4Count: "16 essays",
         no5: "05",
         navQuotes: "Quotes",
         aboutP3: "His method is simple — to question, to examine closely, and to set an honest counterargument beside every claim. He writes every day — one Facebook Documentary and one free-topic piece; the thirst to know is the lifeblood of all he writes.",
@@ -889,7 +920,7 @@
         q5: "বই মরেনি। মরেছে পড়া।",
         q6: "নীরবতা — এই যুগের সবচেয়ে দুর্লভ ইবাদত।",
         q7: "আমরা সবাই কথা বলছি, সবাই শোনাচ্ছি — কিন্তু শুনছে কে?",
-        q8: "আমরা সবাই মনের ভেতর একটা করে আদালত বসিয়ে রেখেছি। সেখানে বছরের পর বছর মামলা চলে।",
+        q8: "আমরা সবাই মনের ভেতর একটা করে আদালত বসিয়ে রেখেছি। সেখানে বছরের পর বছর মামলা চলে।", q9: "বাইরে থেকে দেখলে নিখুঁত ইবাদত; ভেতর থেকে দেখলে পুরোটাই পিআর, পুরোটাই মার্কেটিং।", q10: "আমরা ভাবি আমরা সময় বাঁচাচ্ছি; আসলে সময় আমাদের কেটে চলেছে — নীরবে, প্রতিদিন, প্রতিটি নিঃশ্বাসে।", q11: "বাড়ি বানিয়ে মানুষ মরে যায়; বাড়ি থেকে যায়। আমি আজ এমন একটা বাড়ি বানালাম, যেখানে আমি না থাকলেও আমার ভাবনা থাকবে।", q12: "তারা অন্যের পূর্ণতা দেখে হাসে, অন্যের গল্পে সেতু হয়ে থাকে, কিন্তু দিনশেষে তাদের নিজেদের কোনো গল্প থাকে না।", q13: "মানুষের স্মৃতি ছোট, কিন্তু লেখার স্মৃতি দীর্ঘ। মুখের কথা বাতাসে মিলায়; লেখা থেকে যায়।", q14: "অসাধারণ হওয়ার দৌড়ে সবাই ক্লান্ত; যে নিজের মতো থাকে, সে-ই আসলে মুক্ত।", q15: "ইতিহাস কখনো একপক্ষের গল্প নয়।", q16: "সব তালা খোলা যায়, মৃত্যুর তালা ছাড়া।", s0Count: "১৬টি লেখা", s1Count: "১৭টি পর্ব", s2Count: "১০টি অধ্যায়", s3Count: "৫টি বই", s4Count: "১৬টি প্রবন্ধ",
         no5: "০৫",
         navQuotes: "উক্তি",
         aboutP3: "তাঁর পদ্ধতি সরল — প্রশ্ন করা, খুঁটিয়ে দেখা, আর প্রতিটি দাবির পাশে সৎ পাল্টা-যুক্তি দাঁড় করানো। তিনি প্রতিদিন লেখেন — একটি ফেসবুক ডকুমেন্টারি, আর একটি মুক্ত বিষয়ের রচনা; জানার আকাঙ্ক্ষাই তাঁর প্রতিটি লেখার প্রাণ।",
@@ -1000,6 +1031,26 @@
     });
     document.getElementById('modalClose').addEventListener('click', closeDetail);
     document.getElementById('detailModal').addEventListener('click', function(e){ if(e.target===this) closeDetail(); });
+
+    // Category shelves: only the category shows up front; click to open its list.
+    document.querySelectorAll('.shelf').forEach(function(sh){
+      var head = sh.querySelector('.shelf-head');
+      if(!head) return;
+      head.setAttribute('role', 'button');
+      head.setAttribute('tabindex', '0');
+      head.setAttribute('aria-expanded', 'false');
+      function toggle(){
+        var willOpen = !sh.classList.contains('open');
+        document.querySelectorAll('.shelf.open').forEach(function(o){
+          o.classList.remove('open');
+          var oh = o.querySelector('.shelf-head');
+          if(oh) oh.setAttribute('aria-expanded', 'false');
+        });
+        if(willOpen){ sh.classList.add('open'); head.setAttribute('aria-expanded', 'true'); }
+      }
+      head.addEventListener('click', toggle);
+      head.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggle(); } });
+    });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDetail(); });
 
     /* ---------- live content overrides (edited from admin panel) ---------- */
@@ -1016,6 +1067,7 @@
 </script>
 </body>
 </html>
+
 
 
 
